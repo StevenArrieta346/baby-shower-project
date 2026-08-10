@@ -395,3 +395,169 @@ footer p {
     }
 
 }
+
+/* ========================================
+   BOOK SELECTION PAGE
+======================================== */
+
+.book-section {
+    margin-top: 30px;
+}
+
+
+.book-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.book-card {
+    position: relative;
+
+    display: block;
+
+    background-color: white;
+
+    text-decoration: none;
+
+    color: #24364b;
+
+    padding:
+        32px
+        25px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0
+        10px
+        25px
+        rgba(45, 110, 170, 0.10);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.book-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0
+        14px
+        30px
+        rgba(45, 110, 170, 0.16);
+}
+
+
+.book-number {
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #3787d6;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-weight: bold;
+}
+
+
+.book-emoji {
+    font-size: 52px;
+
+    margin-bottom: 15px;
+}
+
+
+.book-card h2 {
+    color: #246bb2;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+
+.book-card p {
+    color: #667b90;
+
+    font-size: 15px;
+}
+
+
+/* ========================================
+   BACK BUTTON
+======================================== */
+
+.back-area {
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+
+.back-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #246bb2;
+
+    background-color: white;
+
+    padding:
+        14px
+        26px;
+
+    border-radius: 50px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0
+        8px
+        20px
+        rgba(45, 110, 170, 0.10);
+}
+
+
+/* ========================================
+   MOBILE BOOK PAGE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .book-card {
+        padding:
+            30px
+            20px;
+    }
+
+}
