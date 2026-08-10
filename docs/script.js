@@ -1,48 +1,98 @@
 // ========================================
 // BABY SHOWER READING CORNER
-// Main JavaScript
+// Recording System
 // ========================================
 
 
-// ----------------------------------------
+
+// ========================================
 // BOOK INFORMATION
-// ----------------------------------------
+// ========================================
 
 const books = {
-    1: "Book One",
-    2: "Book Two",
-    3: "Book Three",
-    4: "Book Four",
-    5: "Book Five",
-    6: "Book Six",
-    7: "Book Seven"
+
+    1: "I Wish You Happiness",
+
+    2: "Love You Forever",
+
+    3: "Where the Wild Things Are",
+
+    4: "Dragons Love Tacos",
+
+    5: "The Very Hungry Caterpillar",
+
+    6: "I Love You to the Moon and Back",
+
+    7: "Guess How Much I Love You"
+
 };
 
 
-// ----------------------------------------
-// GET SELECTED BOOK FROM URL
-// ----------------------------------------
 
-const urlParameters = new URLSearchParams(window.location.search);
+// ========================================
+// FIND SELECTED BOOK
+// ========================================
 
-const selectedBookNumber = urlParameters.get("book");
+const parameters =
+    new URLSearchParams(
+        window.location.search
+    );
 
-const bookTitle = document.getElementById("book-title");
 
-if (selectedBookNumber && books[selectedBookNumber]) {
-    bookTitle.textContent = books[selectedBookNumber];
+const selectedBook =
+    parameters.get("book");
+
+
+const bookTitle =
+    document.getElementById(
+        "book-title"
+    );
+
+
+if (
+    selectedBook &&
+    books[selectedBook]
+) {
+
+    bookTitle.textContent =
+        books[selectedBook];
+
 }
 
 
-// ----------------------------------------
+
+// ========================================
+// PAGE ELEMENTS
+// ========================================
+
+const recordButton =
+    document.getElementById(
+        "record-button"
+    );
+
+
+const recordingStatus =
+    document.getElementById(
+        "recording-status"
+    );
+
+
+const audioPreview =
+    document.getElementById(
+        "audio-preview"
+    );
+
+
+const readerName =
+    document.getElementById(
+        "reader-name"
+    );
+
+
+
+// ========================================
 // RECORDING VARIABLES
-// ----------------------------------------
-
-const recordButton = document.getElementById("record-button");
-
-const recordingStatus = document.getElementById("recording-status");
-
-const audioPreview = document.getElementById("audio-preview");
+// ========================================
 
 let mediaRecorder;
 
@@ -50,128 +100,237 @@ let audioChunks = [];
 
 let audioBlob;
 
-
-// ----------------------------------------
-// START / STOP RECORDING
-// ----------------------------------------
-
-recordButton.addEventListener("click", async function () {
-
-    // If recording has not started yet
-    if (!mediaRecorder || mediaRecorder.state === "inactive") {
-
-        try {
-
-            // Ask for microphone permission
-            const stream =
-                await navigator.mediaDevices.getUserMedia({
-                    audio: true
-                });
+let microphoneStream;
 
 
-            // Create recorder
-            mediaRecorder =
-                new MediaRecorder(stream);
+
+// ========================================
+// RECORD BUTTON
+// ========================================
+
+recordButton.addEventListener(
+    "click",
+
+    async function () {
 
 
-            audioChunks = [];
+        // --------------------------------
+        // START RECORDING
+        // --------------------------------
+
+        if (
+            !mediaRecorder ||
+            mediaRecorder.state === "inactive"
+        ) {
 
 
-            // Collect audio while recording
-            mediaRecorder.addEventListener(
-                "dataavailable",
-                function (event) {
+            // Require a reader name first
 
-                    audioChunks.push(event.data);
+            if (
+                readerName.value.trim() === ""
+            ) {
 
-                }
-            );
+                recordingStatus.textContent =
+                    "Please enter your name before recording.";
+
+                readerName.focus();
+
+                return;
+
+            }
 
 
-            // When recording stops
-            mediaRecorder.addEventListener(
-                "stop",
-                function () {
+            try {
 
-                    audioBlob =
-                        new Blob(
-                            audioChunks,
-                            {
-                                type: mediaRecorder.mimeType
-                            }
+
+                // Ask for microphone access
+
+                microphoneStream =
+                    await navigator
+                        .mediaDevices
+                        .getUserMedia({
+
+                            audio: true
+
+                        });
+
+
+
+                // Create the recorder
+
+                mediaRecorder =
+                    new MediaRecorder(
+                        microphoneStream
+                    );
+
+
+                audioChunks = [];
+
+
+
+                // --------------------------------
+                // COLLECT AUDIO
+                // --------------------------------
+
+                mediaRecorder.addEventListener(
+                    "dataavailable",
+
+                    function (event) {
+
+
+                        if (
+                            event.data.size > 0
+                        ) {
+
+                            audioChunks.push(
+                                event.data
+                            );
+
+                        }
+
+
+                    }
+
+                );
+
+
+
+                // --------------------------------
+                // RECORDING FINISHED
+                // --------------------------------
+
+                mediaRecorder.addEventListener(
+                    "stop",
+
+                    function () {
+
+
+                        audioBlob =
+                            new Blob(
+                                audioChunks,
+                                {
+                                    type:
+                                        mediaRecorder
+                                            .mimeType
+                                }
+                            );
+
+
+                        const audioURL =
+                            URL.createObjectURL(
+                                audioBlob
+                            );
+
+
+                        // Clear old preview
+
+                        audioPreview.innerHTML =
+                            "";
+
+
+
+                        // Create audio player
+
+                        const audioPlayer =
+                            document.createElement(
+                                "audio"
+                            );
+
+
+                        audioPlayer.controls =
+                            true;
+
+
+                        audioPlayer.src =
+                            audioURL;
+
+
+                        audioPreview.appendChild(
+                            audioPlayer
                         );
 
 
-                    const audioURL =
-                        URL.createObjectURL(audioBlob);
+
+                        // Update status
+
+                        recordingStatus.textContent =
+                            "Recording complete. Listen to it before saving.";
 
 
-                    // Show audio player
-                    audioPreview.innerHTML = "";
+
+                        recordButton.textContent =
+                            "Record Again";
 
 
-                    const audioPlayer =
-                        document.createElement("audio");
+                    }
+
+                );
 
 
-                    audioPlayer.controls = true;
 
-                    audioPlayer.src = audioURL;
+                // --------------------------------
+                // BEGIN RECORDING
+                // --------------------------------
 
-
-                    audioPreview.appendChild(audioPlayer);
-
-
-                    recordingStatus.textContent =
-                        "Recording complete. Listen before saving.";
+                mediaRecorder.start();
 
 
-                    recordButton.textContent =
-                        "Record Again";
-
-                }
-            );
+                recordButton.textContent =
+                    "Stop Recording";
 
 
-            // Begin recording
-            mediaRecorder.start();
+                recordingStatus.textContent =
+                    "Recording... read your story aloud.";
 
 
-            recordButton.textContent =
-                "Stop Recording";
+            }
 
 
-            recordingStatus.textContent =
-                "Recording... read your story aloud.";
+            catch (error) {
+
+
+                recordingStatus.textContent =
+                    "Microphone access was not allowed.";
+
+
+                console.error(
+                    "Microphone Error:",
+                    error
+                );
+
+
+            }
+
 
         }
 
-        catch (error) {
 
-            recordingStatus.textContent =
-                "Microphone access was not allowed.";
+        // --------------------------------
+        // STOP RECORDING
+        // --------------------------------
 
-            console.error(error);
+        else {
+
+
+            mediaRecorder.stop();
+
+
+            microphoneStream
+                .getTracks()
+                .forEach(
+
+                    function (track) {
+
+                        track.stop();
+
+                    }
+
+                );
+
 
         }
 
-    }
-
-    else {
-
-        // Stop recording
-        mediaRecorder.stop();
-
-
-        // Stop microphone
-        mediaRecorder.stream
-            .getTracks()
-            .forEach(function (track) {
-
-                track.stop();
-
-            });
 
     }
 
-});
+);
