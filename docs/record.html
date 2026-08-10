@@ -38,8 +38,8 @@
             </h1>
 
             <p class="welcome-message">
-                Read your book aloud and leave
-                a special recording for Baby.
+                Your voice will become part of
+                Baby's special story collection.
             </p>
 
         </header>
@@ -67,13 +67,14 @@
             <div class="form-group">
 
                 <label for="reader-name">
-                    Your Name
+                    Who is reading this story?
                 </label>
 
                 <input
                     type="text"
                     id="reader-name"
                     placeholder="Enter your name"
+                    autocomplete="name"
                 >
 
             </div>
@@ -90,15 +91,16 @@
             </h3>
 
             <p class="recording-message">
-                Find a comfortable place and tap
-                the button below when you are ready
-                to begin reading.
+                Find a comfortable place.
+                When you're ready, press the
+                button and begin reading aloud.
             </p>
 
 
             <button
                 class="record-button"
                 id="record-button"
+                type="button"
             >
                 Start Recording
             </button>
@@ -114,13 +116,14 @@
 
             <!-- Audio Preview -->
 
-            <div class="audio-preview"
+            <div
+                class="audio-preview"
                 id="audio-preview"
-                >
+            >
 
                 <p>
-                    Your recording will appear here
-                    after you finish reading.
+                    Your recording will appear
+                    here when you're finished.
                 </p>
 
             </div>
@@ -143,8 +146,8 @@
 
     </main>
 
-<script src="script.js"></script>
-    
+
+    <script src="script.js"></script>
 
 </body>
 
