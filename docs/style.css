@@ -1,9 +1,13 @@
-/* ========================================
+/* =========================================================
    BABY SHOWER READING CORNER
-======================================== */
+   Blue Paw Storybook Theme
+   August 2026
+========================================================= */
 
 
-/* ---------- Page Reset ---------- */
+/* =========================================================
+   1. PAGE RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -12,63 +16,155 @@
 }
 
 
-/* ---------- Main Page ---------- */
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-
-    background:
-        linear-gradient(
-            180deg,
-            #dff3ff 0%,
-            #f4faff 100%
-        );
-
-    color: #24364b;
-
-    min-height: 100vh;
+html {
+    scroll-behavior: smooth;
 }
 
 
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #24415f;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #d7f1ff 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #b9e2ff 0%,
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #a9dcff 0%,
+            #eaf7ff 45%,
+            #f8fcff 100%
+        );
+}
+
+
+/* =========================================================
+   2. MAIN PAGE CONTAINER
+========================================================= */
+
 .page-container {
-    width: 90%;
+    width: 92%;
     max-width: 950px;
 
     margin: 0 auto;
 
-    padding: 50px 20px;
+    padding: 45px 20px;
 }
 
 
-/* ========================================
-   WELCOME CARD
-======================================== */
+/* =========================================================
+   3. WELCOME CARD
+========================================================= */
 
 .welcome-card {
-    background-color: white;
+    position: relative;
+
+    overflow: hidden;
+
+    background-color: #ffffff;
 
     text-align: center;
 
     padding: 50px 30px;
 
-    border-radius: 30px;
+    border:
+        4px solid
+        #75bdf2;
+
+    border-radius: 32px;
 
     box-shadow:
-        0 10px 30px
-        rgba(45, 110, 170, 0.12);
+        0 12px 30px
+        rgba(32, 99, 160, 0.15);
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 
+/* Decorative Bubble */
+
+.welcome-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    left: -40px;
+    bottom: -40px;
+
+    background-color: #e1f4ff;
+
+    border-radius: 50%;
+}
+
+
+/* Decorative Bubble */
+
+.welcome-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: -50px;
+    top: -50px;
+
+    background-color: #d7efff;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   4. PAW PRINT
+========================================================= */
+
 .paw-print {
-    font-size: 50px;
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 55px;
+
     margin-bottom: 10px;
 }
 
 
+.footer-paw {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   5. SMALL SECTION TITLES
+========================================================= */
+
 .small-title {
-    color: #4589c7;
+    position: relative;
+
+    z-index: 2;
+
+    color: #397fbd;
 
     font-size: 14px;
 
@@ -82,57 +178,76 @@ body {
 }
 
 
-.welcome-card h1 {
-    color: #246bb2;
+/* =========================================================
+   6. WELCOME TEXT
+========================================================= */
 
-    font-size: 46px;
+.welcome-card h1 {
+    position: relative;
+
+    z-index: 2;
+
+    color: #176cc1;
+
+    font-size: 48px;
+
+    line-height: 1.1;
 
     margin-bottom: 18px;
 }
 
 
 .welcome-message {
+    position: relative;
+
+    z-index: 2;
+
     max-width: 620px;
 
     margin: 0 auto;
 
+    color: #58718a;
+
     font-size: 18px;
 
     line-height: 1.7;
-
-    color: #53687d;
 }
 
 
-/* ========================================
-   READING CARD
-======================================== */
+/* =========================================================
+   7. READING CORNER CARD
+========================================================= */
 
 .reading-card {
-    background-color: white;
+    background-color: #ffffff;
 
     text-align: center;
 
     padding: 45px 35px;
 
+    border:
+        3px solid
+        #c6e8ff;
+
     border-radius: 30px;
 
     box-shadow:
-        0 10px 30px
-        rgba(45, 110, 170, 0.10);
+        0 10px 25px
+        rgba(32, 99, 160, 0.11);
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 
 .book-icon {
-    font-size: 48px;
-    margin-bottom: 12px;
+    font-size: 52px;
+
+    margin-bottom: 10px;
 }
 
 
 .reading-card h2 {
-    color: #246bb2;
+    color: #176cc1;
 
     font-size: 32px;
 
@@ -143,19 +258,22 @@ body {
 .reading-card p {
     max-width: 650px;
 
-    margin: 0 auto 15px;
+    margin:
+        0
+        auto
+        14px;
+
+    color: #59738b;
 
     font-size: 17px;
 
-    line-height: 1.7;
-
-    color: #53687d;
+    line-height: 1.65;
 }
 
 
-/* ========================================
-   CHOOSE BOOK BUTTON
-======================================== */
+/* =========================================================
+   8. MAIN BUTTON
+========================================================= */
 
 .choose-button {
     display: inline-block;
@@ -164,25 +282,30 @@ body {
 
     border: none;
 
-    background-color: #3787d6;
+    background:
+        linear-gradient(
+            180deg,
+            #48a5ed,
+            #217bc4
+        );
 
-    color: white;
+    color: #ffffff;
 
     font-size: 18px;
 
     font-weight: bold;
 
-    padding: 16px 36px;
-
-    border-radius: 50px;
+    padding: 16px 38px;
 
     margin-top: 18px;
+
+    border-radius: 50px;
 
     cursor: pointer;
 
     box-shadow:
-        0 7px 16px
-        rgba(55, 135, 214, 0.25);
+        0 7px 18px
+        rgba(28, 111, 184, 0.28);
 
     transition:
         transform 0.2s ease,
@@ -191,35 +314,39 @@ body {
 
 
 .choose-button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 
     box-shadow:
-        0 10px 20px
-        rgba(55, 135, 214, 0.30);
+        0 11px 24px
+        rgba(28, 111, 184, 0.32);
 }
 
 
-/* ========================================
-   HOW IT WORKS
-======================================== */
+/* =========================================================
+   9. HOW IT WORKS
+========================================================= */
 
 .instructions {
-    background-color: white;
+    background-color: #ffffff;
 
     padding: 40px 30px;
+
+    border:
+        3px solid
+        #c6e8ff;
 
     border-radius: 30px;
 
     box-shadow:
-        0 10px 30px
-        rgba(45, 110, 170, 0.10);
+        0 10px 25px
+        rgba(32, 99, 160, 0.10);
 }
 
 
 .instructions h2 {
     text-align: center;
 
-    color: #246bb2;
+    color: #176cc1;
 
     font-size: 30px;
 
@@ -240,7 +367,11 @@ body {
 .step {
     text-align: center;
 
-    background-color: #f2f9ff;
+    background-color: #edf8ff;
+
+    border:
+        2px dashed
+        #8ac9f3;
 
     padding: 28px 20px;
 
@@ -255,15 +386,17 @@ body {
 
     justify-content: center;
 
-    width: 45px;
+    width: 46px;
+    height: 46px;
 
-    height: 45px;
+    margin:
+        0
+        auto
+        15px;
 
-    margin: 0 auto 15px;
+    background-color: #2582ca;
 
-    background-color: #3787d6;
-
-    color: white;
+    color: #ffffff;
 
     border-radius: 50%;
 
@@ -274,23 +407,24 @@ body {
 
 
 .step h3 {
-    color: #2c659c;
+    color: #246ba5;
+
     margin-bottom: 10px;
 }
 
 
 .step p {
-    color: #617487;
+    color: #617a90;
 
     font-size: 15px;
 
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 
-/* ========================================
-   BOOK SELECTION
-======================================== */
+/* =========================================================
+   10. BOOK SELECTION PAGE
+========================================================= */
 
 .book-section {
     margin-top: 30px;
@@ -303,45 +437,63 @@ body {
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 22px;
 }
 
+
+/* =========================================================
+   11. INDIVIDUAL BOOK CARDS
+========================================================= */
 
 .book-card {
     position: relative;
 
     display: block;
 
-    background-color: white;
+    min-height: 210px;
+
+    background-color: #ffffff;
+
+    color: #24415f;
 
     text-decoration: none;
 
-    color: #24364b;
-
-    padding: 32px 25px;
-
-    border-radius: 25px;
-
     text-align: center;
 
+    padding:
+        34px
+        25px
+        30px;
+
+    border:
+        3px solid
+        #b8e0fb;
+
+    border-radius: 26px;
+
     box-shadow:
-        0 10px 25px
-        rgba(45, 110, 170, 0.10);
+        0 9px 22px
+        rgba(32, 99, 160, 0.10);
 
     transition:
         transform 0.2s ease,
+        border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
 
 
 .book-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+
+    border-color: #68b5e9;
 
     box-shadow:
         0 14px 30px
-        rgba(45, 110, 170, 0.16);
+        rgba(32, 99, 160, 0.16);
 }
 
+
+/* Book Number */
 
 .book-number {
     position: absolute;
@@ -349,77 +501,119 @@ body {
     top: 18px;
     left: 18px;
 
-    width: 34px;
-    height: 34px;
-
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    background-color: #3787d6;
+    width: 38px;
+    height: 38px;
 
-    color: white;
+    background-color: #2383cc;
+
+    color: #ffffff;
 
     border-radius: 50%;
 
+    font-size: 16px;
+
     font-weight: bold;
+
+    box-shadow:
+        0 4px 10px
+        rgba(35, 131, 204, 0.20);
 }
 
 
+/* Book Icon */
+
 .book-emoji {
-    font-size: 52px;
+    font-size: 54px;
+
     margin-bottom: 15px;
 }
 
 
+/* Real Book Titles */
+
 .book-card h2 {
-    color: #246bb2;
+    max-width: 330px;
+
+    margin:
+        0
+        auto
+        10px;
+
+    color: #176cc1;
 
     font-size: 22px;
 
-    margin-bottom: 10px;
+    line-height: 1.3;
 }
 
 
 .book-card p {
-    color: #667b90;
+    color: #667e93;
+
     font-size: 15px;
+
+    line-height: 1.5;
 }
 
 
-/* ========================================
-   RECORDING PAGE
-======================================== */
+/* =========================================================
+   12. RECORDING PAGE
+========================================================= */
 
 .recording-card {
-    background-color: white;
+    background-color: #ffffff;
 
     text-align: center;
 
     padding: 45px 35px;
 
+    border:
+        3px solid
+        #c6e8ff;
+
     border-radius: 30px;
 
     box-shadow:
-        0 10px 30px
-        rgba(45, 110, 170, 0.10);
+        0 10px 28px
+        rgba(32, 99, 160, 0.12);
 }
 
+
+/* Selected Book Title */
 
 .recording-card h2 {
-    color: #246bb2;
+    max-width: 650px;
 
-    font-size: 30px;
+    margin:
+        0
+        auto
+        30px;
 
-    margin-bottom: 30px;
+    color: #176cc1;
+
+    font-size: 31px;
+
+    line-height: 1.3;
 }
 
+
+/* =========================================================
+   13. READER NAME
+========================================================= */
 
 .form-group {
     max-width: 500px;
 
-    margin: 0 auto 35px;
+    margin:
+        0
+        auto
+        35px;
 
     text-align: left;
 }
@@ -430,9 +624,11 @@ body {
 
     margin-bottom: 8px;
 
-    font-weight: bold;
+    color: #385f83;
 
-    color: #385b7d;
+    font-size: 16px;
+
+    font-weight: bold;
 }
 
 
@@ -441,45 +637,84 @@ body {
 
     padding: 15px 18px;
 
+    background-color: #fbfdff;
+
+    color: #284a69;
+
     border:
         2px solid
-        #d8eafb;
+        #c9e6fa;
 
     border-radius: 15px;
 
+    outline: none;
+
+    font-family: inherit;
+
     font-size: 17px;
 
-    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+    color: #9aafc0;
 }
 
 
 .form-group input:focus {
-    border-color: #3787d6;
+    border-color: #328fd2;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(50, 143, 210, 0.10);
 }
 
 
+/* =========================================================
+   14. MICROPHONE AREA
+========================================================= */
+
 .microphone-circle {
-    width: 110px;
-
-    height: 110px;
-
-    margin: 10px auto 20px;
-
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    background-color: #e7f4ff;
+    width: 115px;
+    height: 115px;
+
+    margin:
+        10px
+        auto
+        20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e7f6ff,
+            #c7eaff
+        );
+
+    border:
+        3px solid
+        #92cef4;
 
     border-radius: 50%;
 
     font-size: 52px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(45, 139, 205, 0.13);
 }
 
 
 .recording-card h3 {
-    color: #2c659c;
+    color: #246ba5;
 
     font-size: 24px;
 
@@ -490,9 +725,12 @@ body {
 .recording-message {
     max-width: 520px;
 
-    margin: 0 auto 20px;
+    margin:
+        0
+        auto
+        20px;
 
-    color: #617487;
+    color: #617a90;
 
     font-size: 16px;
 
@@ -500,59 +738,121 @@ body {
 }
 
 
+/* =========================================================
+   15. RECORD BUTTON
+========================================================= */
+
 .record-button {
+    min-width: 200px;
+
     border: none;
 
-    background-color: #3787d6;
+    background:
+        linear-gradient(
+            180deg,
+            #48a5ed,
+            #217bc4
+        );
 
-    color: white;
+    color: #ffffff;
+
+    font-family: inherit;
 
     font-size: 18px;
 
     font-weight: bold;
 
-    padding: 16px 35px;
+    padding: 16px 36px;
 
     border-radius: 50px;
 
     cursor: pointer;
 
     box-shadow:
-        0 7px 16px
-        rgba(55, 135, 214, 0.25);
+        0 7px 18px
+        rgba(28, 111, 184, 0.26);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+
+.record-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(28, 111, 184, 0.32);
+}
+
+
+.record-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   16. RECORDING STATUS
+========================================================= */
 
 .recording-status {
-    margin-top: 15px;
+    min-height: 22px;
 
-    color: #70859a;
+    margin-top: 16px;
+
+    color: #698297;
 
     font-size: 14px;
+
+    font-weight: bold;
 }
 
+
+/* =========================================================
+   17. AUDIO PREVIEW
+========================================================= */
 
 .audio-preview {
     max-width: 550px;
 
-    margin: 35px auto 0;
+    margin:
+        35px
+        auto
+        0;
 
     padding: 25px;
 
-    background-color: #f2f9ff;
+    background-color: #edf8ff;
+
+    border:
+        2px dashed
+        #9dd2f3;
 
     border-radius: 20px;
 
-    color: #667b90;
+    color: #60798e;
+
+    line-height: 1.5;
 }
 
 
-/* ========================================
-   BACK BUTTON
-======================================== */
+.audio-preview audio {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   18. BACK BUTTON
+========================================================= */
 
 .back-area {
     text-align: center;
+
     margin-top: 35px;
 }
 
@@ -560,62 +860,129 @@ body {
 .back-button {
     display: inline-block;
 
+    background-color: #ffffff;
+
+    color: #176cc1;
+
     text-decoration: none;
 
-    color: #246bb2;
-
-    background-color: white;
-
     padding: 14px 26px;
+
+    border:
+        2px solid
+        #c1e4fb;
 
     border-radius: 50px;
 
     font-weight: bold;
 
     box-shadow:
-        0 8px 20px
-        rgba(45, 110, 170, 0.10);
+        0 7px 18px
+        rgba(32, 99, 160, 0.10);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 
-/* ========================================
-   FOOTER
-======================================== */
+.back-button:hover {
+    transform: translateY(-2px);
+
+    border-color: #74bdea;
+}
+
+
+/* =========================================================
+   19. FOOTER
+========================================================= */
 
 footer {
     text-align: center;
 
-    padding: 35px 10px 10px;
+    padding:
+        38px
+        10px
+        10px;
 
-    color: #56738e;
-}
+    color: #52708b;
 
-
-footer p {
-    margin-bottom: 5px;
+    line-height: 1.5;
 }
 
 
 .event-date {
+    margin-top: 5px;
+
+    color: #397fbd;
+
     font-size: 14px;
+
     font-weight: bold;
 }
 
 
-/* ========================================
-   MOBILE PHONES
-======================================== */
+/* =========================================================
+   20. ACCESSIBILITY
+========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline:
+        3px solid
+        #125e9f;
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   21. TABLET DESIGN
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .welcome-card h1 {
+        font-size: 42px;
+    }
+
+
+    .book-card h2 {
+        font-size: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   22. MOBILE PHONE DESIGN
+========================================================= */
 
 @media (max-width: 700px) {
 
     .page-container {
         width: 94%;
-        padding: 25px 10px;
+
+        padding:
+            25px
+            10px;
     }
 
 
+    /* Welcome */
+
     .welcome-card {
-        padding: 40px 22px;
+        padding:
+            38px
+            20px;
+
+        border-radius: 25px;
+    }
+
+
+    .paw-print {
+        font-size: 48px;
     }
 
 
@@ -629,8 +996,28 @@ footer p {
     }
 
 
+    /* Reading Card */
+
     .reading-card {
-        padding: 35px 22px;
+        padding:
+            35px
+            22px;
+
+        border-radius: 25px;
+    }
+
+
+    .reading-card h2 {
+        font-size: 28px;
+    }
+
+
+    /* How It Works */
+
+    .instructions {
+        padding:
+            35px
+            20px;
     }
 
 
@@ -639,20 +1026,94 @@ footer p {
     }
 
 
+    /* Books */
+
     .book-grid {
         grid-template-columns: 1fr;
     }
 
 
-    .recording-card {
-        padding: 35px 22px;
+    .book-card {
+        min-height: 0;
+
+        padding:
+            32px
+            22px;
     }
 
+
+    .book-card h2 {
+        font-size: 21px;
+    }
+
+
+    /* Recording */
+
+    .recording-card {
+        padding:
+            35px
+            20px;
+
+        border-radius: 25px;
+    }
+
+
+    .recording-card h2 {
+        font-size: 27px;
+    }
+
+
+    .microphone-circle {
+        width: 100px;
+        height: 100px;
+
+        font-size: 46px;
+    }
+
+
+    /* Buttons */
 
     .choose-button,
     .record-button {
         width: 100%;
-        max-width: 300px;
+
+        max-width: 310px;
+    }
+
+
+    .back-button {
+        width: 100%;
+
+        max-width: 310px;
+    }
+
+}
+
+
+/* =========================================================
+   23. VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .welcome-card h1 {
+        font-size: 30px;
+    }
+
+
+    .reading-card h2,
+    .instructions h2 {
+        font-size: 26px;
+    }
+
+
+    .recording-card h2 {
+        font-size: 24px;
+    }
+
+
+    .book-card h2 {
+        font-size: 20px;
     }
 
 }
